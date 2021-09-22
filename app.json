@@ -4,9 +4,9 @@
     "slug": "react-native-stripe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "public/icon.png",
+    "icon": "./assets/img/icon.png",
     "splash": {
-      "image": "public/splash.png",
+      "image": "./assets/img/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "public/adaptive-icon.png",
+        "foregroundImage": "./assets/img/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "public/favicon.png"
+      "favicon": "./assets/img/favicon.png"
     }
   }
 }

@@ -1,1 +1,1 @@
-export * from './common/FlexTypes';
+export * from './models/IPlace';
