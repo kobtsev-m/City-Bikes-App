@@ -1,5 +1,5 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { IBreakpoint, IRuleset } from './Media.types';
+import { IBreakpoint, IRuleset } from './media.types';
 
 export const breakpointsSizes = {
   xs: 0,

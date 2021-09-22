@@ -1,3 +1,3 @@
-export * from './Media/Media.styles';
+export * from './media/media';
 
-export * from './Theme/Theme.styles';
+export * from './theme/theme';
