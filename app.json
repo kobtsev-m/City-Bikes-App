@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-stripe",
-    "slug": "react-native-stripe",
+    "name": "city-bikes-app",
+    "slug": "city-bikes-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/img/icon.png",
