@@ -1,17 +1,15 @@
 import React, { FC, useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
-import axios from 'axios';
 import { IPlace } from 'app/types';
 import { Box } from 'app/components/atoms';
 import { PlaceCard } from 'app/components/molecules';
+import { PlacesService } from 'app/api';
 
 export const PlaceList: FC = () => {
   const [places, setPlaces] = useState<IPlace[]>([]);
 
   useEffect(() => {
-    axios
-      .get<{ networks: IPlace[] }>('http://api.citybik.es/v2/networks')
-      .then(({ data }) => setPlaces(data.networks));
+    PlacesService.getPlaces().then((data) => setPlaces(data));
   }, []);
 
   if (!places.length) {
@@ -20,11 +18,9 @@ export const PlaceList: FC = () => {
 
   return (
     <FlatList
-      columnWrapperStyle={{ marginHorizontal: -10 }}
       data={places.slice(0, 30)}
-      numColumns={2}
       renderItem={({ item }) => (
-        <Box width={50} p={10}>
+        <Box width={100} pb={10}>
           <PlaceCard place={item} />
         </Box>
       )}

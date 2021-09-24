@@ -46,9 +46,9 @@ export const lightTheme: DefaultTheme = {
   ...theme,
   mode: 'light',
   color: {
-    font: '#1B1B1B',
-    background: '#F4F4F4',
-    accent: '#687349',
+    font: '#232123',
+    background: '#FFFFFF',
+    accent: '#8fbd4b',
     secondary: '#8D754F',
     layout: '#FFFFFF',
     grey: 'rgba(27, 27, 27, 0.2)',

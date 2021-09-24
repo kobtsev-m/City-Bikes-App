@@ -8,7 +8,7 @@ export const Home: FC = () => {
   const { toggleTheme } = useActions();
   return (
     <>
-      <Box align='center' mb={10}>
+      <Box mb={10}>
         <CustomButton onPress={toggleTheme}>Theme toggle</CustomButton>
       </Box>
       <HomeTitle>Place list</HomeTitle>
