@@ -1,17 +1,17 @@
-import { darkTheme } from 'app/styles';
-import { ThemeAction, ThemeActionEnum, ThemeState } from './theme.types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { darkTheme, lightTheme } from 'app/styles';
+import { InferAction, InferThunk } from 'app/store';
 
-const initialState: ThemeState = {
+const THEME_KEY = '@theme';
+
+const initialState = {
   theme: darkTheme,
   isFirstLoading: true
 };
 
-export const themeReducer = (
-  state: ThemeState = initialState,
-  action: ThemeAction
-): ThemeState => {
+export const themeReducer: IReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ThemeActionEnum.SET_THEME:
+    case 'SET_THEME':
       return {
         ...state,
         theme: action.payload,
@@ -21,3 +21,29 @@ export const themeReducer = (
       return state;
   }
 };
+
+export const themeActions = {
+  setTheme: (payload: IState['theme']) => ({
+    type: 'SET_THEME' as const,
+    payload
+  }),
+  toggleTheme: (): IThunk => async (dispatch, getState) => {
+    const { theme, isFirstLoading } = getState().theme;
+    let themeMode: string = theme.mode;
+    if (isFirstLoading) {
+      themeMode = (await AsyncStorage.getItem(THEME_KEY)) ?? theme.mode;
+    }
+    if (themeMode === lightTheme.mode) {
+      dispatch(themeActions.setTheme(darkTheme));
+      await AsyncStorage.setItem(THEME_KEY, lightTheme.mode);
+    } else {
+      dispatch(themeActions.setTheme(lightTheme));
+      await AsyncStorage.setItem(THEME_KEY, darkTheme.mode);
+    }
+  }
+};
+
+type IState = typeof initialState;
+type IAction = InferAction<typeof themeActions>;
+type IThunk = InferThunk<{ theme: IState }>;
+type IReducer = (state: IState, action: IAction) => IState;

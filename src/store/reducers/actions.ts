@@ -1,5 +1,5 @@
-import { themeActions } from './theme/theme.actions';
-import { placesActions } from './places/places.actions';
+import { themeActions } from './theme/theme.reducer';
+import { placesActions } from './places/places.reducer';
 
 export const actions = {
   ...themeActions,
