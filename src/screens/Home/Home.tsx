@@ -1,11 +1,11 @@
-import { useActions } from 'app/hooks';
+import { useAppActions } from 'app/hooks';
 import React, { FC } from 'react';
 import { Box, CustomButton } from 'app/components/atoms';
 import { PlaceList } from 'app/components/organisms';
 import { HomeTitle } from './Home.styles';
 
 export const Home: FC = () => {
-  const { toggleTheme } = useActions();
+  const { toggleTheme } = useAppActions();
   return (
     <>
       <Box mb={10}>

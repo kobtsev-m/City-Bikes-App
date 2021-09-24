@@ -1,5 +1,5 @@
 import { ThunkAction } from 'redux-thunk';
-import { RootState } from 'app/store';
+import { AppState } from 'app/store';
 import { DefaultTheme } from 'styled-components';
 
 export interface ThemeState {
@@ -11,16 +11,16 @@ export enum ThemeActionEnum {
   SET_THEME = 'SET_THEME'
 }
 
-interface SetThemeAction {
+export interface SetTheme {
   type: ThemeActionEnum.SET_THEME;
-  payload: DefaultTheme;
+  payload: ThemeState['theme'];
 }
 
-export type ThemeAction = SetThemeAction;
+export type ThemeAction = SetTheme;
 
 export type ThemeThunk = ThunkAction<
   Promise<void>,
-  RootState,
+  AppState,
   unknown,
   ThemeAction
 >;

@@ -1,15 +1,15 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { FlatList } from 'react-native';
-import { IPlace } from 'app/types';
 import { Box } from 'app/components/atoms';
 import { PlaceCard } from 'app/components/molecules';
-import { PlacesService } from 'app/api';
+import { useAppActions, useAppSelector } from 'app/hooks';
 
 export const PlaceList: FC = () => {
-  const [places, setPlaces] = useState<IPlace[]>([]);
+  const { places } = useAppSelector((state) => state.places);
+  const { fetchPlaces } = useAppActions();
 
   useEffect(() => {
-    PlacesService.getPlaces().then((data) => setPlaces(data));
+    fetchPlaces();
   }, []);
 
   if (!places.length) {

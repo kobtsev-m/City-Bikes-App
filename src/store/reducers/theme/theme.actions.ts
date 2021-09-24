@@ -1,18 +1,17 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { DefaultTheme } from 'styled-components';
 import { darkTheme, lightTheme } from 'app/styles';
-import { ThemeActionEnum, ThemeState, ThemeThunk } from './theme.types';
+import { ThemeThunk, ThemeActionEnum, SetTheme } from './theme.types';
 
 const THEME_KEY = '@theme';
 
 export const themeActions = {
-  setTheme: (theme: DefaultTheme) => ({
+  setTheme: (payload: SetTheme['payload']): SetTheme => ({
     type: ThemeActionEnum.SET_THEME,
-    payload: theme
+    payload
   }),
   toggleTheme: (): ThemeThunk => async (dispatch, getState) => {
-    const { theme, isFirstLoading } = getState().theme as ThemeState;
-    let themeMode = theme.mode as string;
+    const { theme, isFirstLoading } = getState().theme;
+    let themeMode: string = theme.mode;
     if (isFirstLoading) {
       themeMode = (await AsyncStorage.getItem(THEME_KEY)) ?? theme.mode;
     }

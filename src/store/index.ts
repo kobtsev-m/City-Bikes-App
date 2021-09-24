@@ -1,10 +1,10 @@
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { rootReducer } from './reducers/rootReducer';
-import { rootAction } from './reducers/rootAction';
+import { reducers } from './reducers/reducers';
+import { actions } from './reducers/actions';
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+export const store = createStore(reducers, applyMiddleware(thunk));
 
-export { rootAction };
+export { actions };
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type AppState = ReturnType<typeof store.getState>;

@@ -10,6 +10,7 @@ const borderCss = css`
 
 export const HomeTitle = styled.Text`
   color: ${({ theme }) => theme.color.font};
+  font-family: 'OpenSans_800ExtraBold';
   font-size: 20px;
   text-align: center;
   ${borderCss};

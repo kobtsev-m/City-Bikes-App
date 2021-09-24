@@ -1,4 +1,3 @@
-import { Reducer } from 'react';
 import { darkTheme } from 'app/styles';
 import { ThemeAction, ThemeActionEnum, ThemeState } from './theme.types';
 
@@ -7,10 +6,10 @@ const initialState: ThemeState = {
   isFirstLoading: true
 };
 
-export const themeReducer: Reducer<ThemeState, ThemeAction> = (
-  state = initialState,
-  action
-) => {
+export const themeReducer = (
+  state: ThemeState = initialState,
+  action: ThemeAction
+): ThemeState => {
   switch (action.type) {
     case ThemeActionEnum.SET_THEME:
       return {

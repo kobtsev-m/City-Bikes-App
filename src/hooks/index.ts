@@ -1,2 +1,3 @@
-export * from './useActions/useActions';
-export * from './useTypedSelector/useTypedSelector';
+export * from './useAppActions/useAppActions';
+export * from './useAppSelector/useAppSelector';
+export * from './useAppFonts/useAppFonts';
