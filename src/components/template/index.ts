@@ -1,3 +1,3 @@
-export * from './Header/Header';
+export * from './ThemeProvider/ThemeProvider';
+export * from './FontsProvider/FontsProvider';
 export * from './Layout/Layout';
-export * from './Layout/Layout.styles';

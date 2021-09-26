@@ -38,6 +38,8 @@ export const placesActions = {
   }
 };
 
+const placesThunks = {};
+
 type IState = typeof initialState;
 type IAction = InferAction<typeof placesActions>;
 type IThunk = InferThunk<{ places: IState }>;
