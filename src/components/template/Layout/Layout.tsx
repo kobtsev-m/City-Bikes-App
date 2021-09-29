@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { AppNavigationParams } from 'app/navigation';
-import { Footer } from './Footer';
+import { Footer } from '../Footer/Footer';
 import { Body, Container } from './Layout.styles';
 
 export const Layout: FC<IProps> = (props) => {

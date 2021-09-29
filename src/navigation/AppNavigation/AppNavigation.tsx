@@ -7,12 +7,11 @@ import {
   NavigationContainer,
   NavigatorScreenParams
 } from '@react-navigation/native';
-
-import { SettingsTab } from 'app/screens';
 import {
   PlacesNavigation,
   PlacesNavigationParams
 } from '../PlacesNavigation/PlacesNavigation';
+import { SettingsTab } from 'app/screens';
 
 const Tab = createBottomTabNavigator<AppNavigationParams>();
 

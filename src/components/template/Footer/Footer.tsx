@@ -12,7 +12,7 @@ export const Footer: FC<IProps> = (props) => {
   return (
     <Wrapper>
       <FooterButton
-        onPress={() => navigation.navigate('Places', { screen: 'HomeTab' })}
+        onPress={() => navigation.navigate('Places', { screen: 'Home' })}
         active={activeTab === 'Places'}
       >
         <Entypo
@@ -28,7 +28,7 @@ export const Footer: FC<IProps> = (props) => {
         <Ionicons
           name='settings-sharp'
           size={24}
-          color={theme.color[activeTab === 'SettingsTab' ? 'accent' : 'grey']}
+          color={theme.color[activeTab === 'Settings' ? 'accent' : 'grey']}
         />
       </FooterButton>
     </Wrapper>
