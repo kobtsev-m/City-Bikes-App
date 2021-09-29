@@ -1,2 +1,3 @@
 export * from './models/IPlace';
-export * from './store/store.types';
+export * from './models/IStation';
+export * from './models/IPlaceDetails';

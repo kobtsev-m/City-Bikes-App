@@ -1,31 +1,44 @@
 import React, { FC } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { Contact, Home } from 'app/screens';
-import { useTheme } from 'styled-components/native';
+import {
+  createBottomTabNavigator,
+  BottomTabScreenProps
+} from '@react-navigation/bottom-tabs';
+import {
+  NavigationContainer,
+  NavigatorScreenParams
+} from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator();
+import { SettingsTab } from 'app/screens';
+import {
+  PlacesNavigation,
+  PlacesNavigationParams
+} from '../PlacesNavigation/PlacesNavigation';
+
+const Tab = createBottomTabNavigator<AppNavigationParams>();
 
 export const AppNavigation: FC = () => {
-  const theme = useTheme();
-  const screenOptions = {
-    headerStyle: {
-      backgroundColor: theme.color.background
-    },
-    headerTitleStyle: {
-      color: theme.color.font
-    }
-  };
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home} options={screenOptions} />
-        <Stack.Screen
-          name='Contact'
-          component={Contact}
-          options={screenOptions}
-        />
-      </Stack.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            display: 'none'
+          }
+        }}
+      >
+        <Tab.Screen name='Places' component={PlacesNavigation} />
+        <Tab.Screen name='Settings' component={SettingsTab} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
+
+export type AppNavigationParams = {
+  Places: NavigatorScreenParams<PlacesNavigationParams>;
+  Settings: undefined;
+};
+
+export type AppNavigationProps<
+  T extends keyof AppNavigationParams = 'Places'
+> = BottomTabScreenProps<AppNavigationParams, T>;

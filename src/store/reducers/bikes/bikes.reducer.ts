@@ -1,3 +1,4 @@
+import { Reducer } from 'redux';
 import { InferAction, InferThunk } from 'app/store';
 
 const initialState = {
@@ -23,4 +24,4 @@ export const bikesActions = {
 type IState = typeof initialState;
 type IAction = InferAction<typeof bikesActions>;
 type IThunk = InferThunk<{ bikes: IState }>;
-type IReducer = (state: IState, action: IAction) => IState;
+type IReducer = Reducer<IState, IAction>;

@@ -31,13 +31,13 @@ export const darkTheme: DefaultTheme = {
   ...theme,
   mode: 'dark',
   color: {
-    font: '#FFFFFF',
-    background: '#1B1B1B',
-    accent: '#80AFD7',
+    font: '#edeff4',
+    background: '#1f2128',
+    accent: '#6977fd',
     secondary: '#8D754F',
-    layout: '#202020',
-    grey: 'rgba(255, 255, 255, 0.2)',
-    lightGrey: 'rgba(255, 255, 255, 0.5)',
+    layout: '#2b2f37',
+    grey: '#676b76',
+    lightGrey: '#4c505b',
     thin: 'rgba(255, 255, 255, 0.1)'
   }
 };
@@ -46,13 +46,13 @@ export const lightTheme: DefaultTheme = {
   ...theme,
   mode: 'light',
   color: {
-    font: '#232123',
-    background: '#FFFFFF',
-    accent: '#8fbd4b',
+    font: '#1f2128',
+    background: '#f7f8fa',
+    accent: '#2f987b',
     secondary: '#8D754F',
     layout: '#FFFFFF',
-    grey: 'rgba(27, 27, 27, 0.2)',
-    lightGrey: 'rgba(27, 27, 27, 0.5)',
+    grey: '#cdccda',
+    lightGrey: '#f2f0fa',
     thin: 'rgba(27, 27, 27, 0.1)'
   }
 };

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Reducer } from 'redux';
 import { darkTheme, lightTheme } from 'app/styles';
 import { InferAction, InferThunk } from 'app/store';
 
@@ -46,4 +47,4 @@ export const themeActions = {
 type IState = typeof initialState;
 type IAction = InferAction<typeof themeActions>;
 type IThunk = InferThunk<{ theme: IState }>;
-type IReducer = (state: IState, action: IAction) => IState;
+type IReducer = Reducer<IState, IAction>;

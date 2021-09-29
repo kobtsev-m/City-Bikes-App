@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import { IBreakpoint, IRuleset } from 'app/types';
-import { media, mediaProperty } from 'app/styles';
+import { media, mediaProperty, IBreakpoint, IRuleset } from 'app/styles';
 
 type Align = 'center' | 'start' | 'end' | 'between' | 'around';
 type FlexDir = 'row' | 'column' | 'row-reverse' | 'column-reverse';

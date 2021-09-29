@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Body = styled.View`
-  min-height: 100%;
+export const Body = styled.SafeAreaView`
+  position: relative;
+  height: 100%;
   background-color: ${({ theme }) => theme.color.background};
 `;
 

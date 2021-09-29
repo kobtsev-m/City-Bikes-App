@@ -8,9 +8,9 @@ import {
 } from './Buttons.styles';
 
 export const CustomButton: FC<IProps> = (props) => {
-  const { children, color, ...restProps } = props;
+  const { children, color, background, onPress } = props;
   return (
-    <CustomButtonWrapper underlayColor='#DDDDDD' {...restProps}>
+    <CustomButtonWrapper background={background} onPress={onPress}>
       <CustomButtonText color={color}>{children}</CustomButtonText>
     </CustomButtonWrapper>
   );

@@ -9,4 +9,5 @@ export interface IPlace {
     latitude: number;
     longitude: number;
   };
+  photoUrl?: string;
 }

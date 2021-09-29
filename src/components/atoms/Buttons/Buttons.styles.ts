@@ -1,7 +1,12 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { DefaultTheme } from 'styled-components';
+import { rgba } from 'polished';
 
-export const CustomButtonWrapper = styled.TouchableHighlight<CustomButtonProps>`
+export const CustomButtonWrapper = styled.TouchableHighlight.attrs(
+  (props) => ({
+    underlayColor: rgba(props.theme.color.font, 0.7)
+  })
+)<CustomButtonProps>`
   display: flex;
   align-items: center;
   background-color: ${({ theme, background }) =>
