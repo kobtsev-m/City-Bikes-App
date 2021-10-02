@@ -21,9 +21,7 @@ export const AppNavigation: FC = () => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: {
-            display: 'none'
-          }
+          tabBarStyle: { display: 'none' }
         }}
       >
         <Tab.Screen name='Places' component={PlacesNavigation} />

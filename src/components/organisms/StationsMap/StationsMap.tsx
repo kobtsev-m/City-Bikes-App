@@ -15,11 +15,10 @@ import {
 
 export const StationsMap: FC<IProps> = (props) => {
   const { activePlace } = props;
-  const { height: windowHeight } = Dimensions.get('window');
   const navigation = useNavigation<AppNavigationProps['navigation']>();
   return (
     <StyledMapView
-      height={windowHeight / 1.6}
+      height={400}
       provider={PROVIDER_GOOGLE}
       region={{
         latitude: activePlace.location.latitude,

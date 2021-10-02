@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { useTheme } from 'styled-components/native';
 import { useAppActions, useAppSelector } from 'app/hooks';
+import { PlacesNavigationProps } from 'app/navigation';
 import { Layout } from 'app/components/template';
 import { StationsMap } from 'app/components/organisms';
 import { Box, ClassicLoader } from 'app/components/atoms';
@@ -10,8 +11,6 @@ import {
   DetailHeader,
   DetailIcon
 } from './PlaceDetail.styles';
-import { PlacesNavigationProps } from 'app/navigation';
-import { Text } from 'react-native';
 
 export const PlaceDetail: FC<IProps> = (props) => {
   const { route } = props;
@@ -24,7 +23,7 @@ export const PlaceDetail: FC<IProps> = (props) => {
     fetchActivePlace(placeId);
   }, []);
 
-  if (!activePlace || activePlace.id !== placeId) {
+  if (activePlace?.id !== placeId) {
     return (
       <Layout>
         <ClassicLoader />

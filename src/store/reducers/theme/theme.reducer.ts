@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Reducer } from 'redux';
-import { darkTheme, lightTheme } from 'app/styles';
 import { InferAction, InferThunk } from 'app/store';
+import { darkTheme, lightTheme } from 'app/styles';
 
 const THEME_KEY = '@theme';
 
