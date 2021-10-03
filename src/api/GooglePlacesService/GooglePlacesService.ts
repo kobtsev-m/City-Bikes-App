@@ -1,6 +1,7 @@
 import axios from 'axios';
+import Constants from 'expo-constants';
 
-const key = 'AIzaSyDmEPJb_BvPoO3_iONj0LIe9m2mwJsfQWg';
+const key = Constants?.manifest?.extra?.googleMaps?.key;
 
 const GeocodingApi = axios.create({
   baseURL: 'https://maps.googleapis.com/maps/api/geocode/json',
@@ -14,7 +15,7 @@ const PlaceDetailsApi = axios.create({
 
 const getPlacePhotoUrl = (photoRef: string) => {
   const basePhotoUrl = 'https://maps.googleapis.com/maps/api/place/photo';
-  return `${basePhotoUrl}?maxwidth=400&photo_reference=${photoRef}&key=${key}`;
+  return `${basePhotoUrl}?maxwidth=720&photo_reference=${photoRef}&key=${key}`;
 };
 
 export class GooglePlacesService {

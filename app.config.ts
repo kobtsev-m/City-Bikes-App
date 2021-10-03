@@ -19,7 +19,7 @@ export default {
     supportsTablet: true,
     bundleIdentifier: 'com.kobtsev-m.city-bikes-app',
     config: {
-      googleMapsApiKey: 'AIzaSyDmEPJb_BvPoO3_iONj0LIe9m2mwJsfQWg'
+      googleMapsApiKey: process.env.GOOGLE_MAPS_KEY
     }
   },
   android: {
@@ -31,8 +31,13 @@ export default {
   web: {
     favicon: './src/assets/img/favicon.png'
   },
-  stripe: {
-    publishableKey: process.env.SRTIPE_PUBLISHABLE_KEY,
-    paymentCompleteUrl: process.env.STRIPE_PAYMENT_COMPLETE_URL
+  extra: {
+    stripe: {
+      publishableKey: process.env.SRTIPE_PUBLISHABLE_KEY,
+      paymentUrl: process.env.STRIPE_PAYMENT_URL
+    },
+    googleMaps: {
+      key: process.env.GOOGLE_MAPS_KEY
+    }
   }
 };

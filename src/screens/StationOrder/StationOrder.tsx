@@ -1,21 +1,21 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, Button } from 'react-native';
-import Constants from 'expo-constants';
+import { Alert } from 'react-native';
 import {
-  CardField,
   CardFieldInput,
   useConfirmPayment
 } from '@stripe/stripe-react-native';
+import { StripeService } from 'app/api';
 import { useAppActions, useAppSelector } from 'app/hooks';
 import { PlacesNavigationProps } from 'app/navigation';
 import { Layout } from 'app/components/template';
-import { Box, ClassicLoader } from 'app/components/atoms';
-import { CustomTextInput, StationText } from './StationOrder.styles';
-import axios from 'axios';
+import { Box, ClassicLoader, CustomButton } from 'app/components/atoms';
+import {
+  CustomCardField,
+  CustomTextInput,
+  StationText
+} from './StationOrder.styles';
 
 type CardDetails = CardFieldInput.Details | null;
-
-const paymentCompleteUrl = Constants?.manifest?.stripe?.paymentCompleteUrl;
 
 export const StationOrder: FC<IProps> = (props) => {
   const { route } = props;
@@ -39,16 +39,19 @@ export const StationOrder: FC<IProps> = (props) => {
       return;
     }
     setIsLoading(true);
-    const { data } = await axios.post(paymentCompleteUrl, {
-      amount: 1000,
-      currency: 'usd'
-    });
-    const { clientSecret } = data;
-    const { paymentIntent, error } = await confirmPayment(clientSecret, {
+    const clientSecretData = await StripeService.getClientSecret(10000, 'rub');
+    const { clientSecret, error: getSecretError } = clientSecretData;
+    if (getSecretError) {
+      Alert.alert('Some error occured');
+      setIsLoading(false);
+      return;
+    }
+    const paymentIntentData = await confirmPayment(clientSecret, {
       type: 'Card',
       billingDetails: { email }
     });
-    if (error) {
+    const { paymentIntent, error: confirmPaymentError } = paymentIntentData;
+    if (confirmPaymentError) {
       Alert.alert('Some error occured');
     } else if (paymentIntent) {
       Alert.alert('Success!');
@@ -74,21 +77,19 @@ export const StationOrder: FC<IProps> = (props) => {
           keyboardType='email-address'
           onChange={(value) => setEmail(value.nativeEvent.text)}
         />
-        <CardField
-          cardStyle={{
-            backgroundColor: '#FFFFFF',
-            textColor: '#000000'
-          }}
-          style={{
-            width: '100%',
-            height: 50,
-            marginVertical: 30
-          }}
+        <CustomCardField
           postalCodeEnabled={false}
           placeholder={{ number: '4242 4242 4242 4242' }}
           onCardChange={(cardDetails) => setCardDetails(cardDetails)}
         />
-        <Button title='Pay' onPress={handlePay} disabled={isLoading} />
+        <CustomButton
+          background='accent'
+          color='background'
+          onPress={handlePay}
+          disabled={isLoading}
+        >
+          Pay
+        </CustomButton>
       </Box>
     </Layout>
   );

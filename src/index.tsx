@@ -7,7 +7,7 @@ import { store } from 'app/store';
 import { ThemeProvider, FontsProvider } from 'app/components/template';
 import { AppNavigation } from 'app/navigation';
 
-const publishableKey = Constants?.manifest?.stripe?.publishableKey;
+const publishableKey = Constants?.manifest?.extra?.stripe?.publishableKey;
 
 const Index: FC = () => {
   return (

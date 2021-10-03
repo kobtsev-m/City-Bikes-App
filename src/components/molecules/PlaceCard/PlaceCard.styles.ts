@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { rgba } from 'polished';
 
 export const Wrapper = styled.View`
   width: 100%;
@@ -18,7 +17,7 @@ export const CardHeaderLayoutMark = styled.View`
   top: 20px;
   left: 0;
   width: 65%;
-  height: 200%;
+  height: 100px;
   background-color: ${({ theme }) => theme.color.layout};
   transform: rotate(-20deg);
 `;

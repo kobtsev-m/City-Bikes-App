@@ -6,7 +6,7 @@ import { HomeTitle, HomeTitleBlock } from './HomeTab.styles';
 
 export const HomeTab: FC = () => {
   return (
-    <Layout footer={true} activeTab='Places'>
+    <Layout footer activeTab='Places'>
       <HomeTitleBlock>
         <HomeTitle>Place list</HomeTitle>
       </HomeTitleBlock>

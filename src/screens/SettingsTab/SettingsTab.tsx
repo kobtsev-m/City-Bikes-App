@@ -7,10 +7,16 @@ import { Box, CustomButton } from 'app/components/atoms';
 export const SettingsTab: FC = () => {
   const { toggleTheme } = useAppActions();
   return (
-    <Layout footer={true} activeTab='Settings'>
+    <Layout footer activeTab='Settings'>
       <Title>SettingsTab</Title>
       <Box mt={20}>
-        <CustomButton onPress={toggleTheme}>Theme toggle</CustomButton>
+        <CustomButton
+          background='font'
+          color='background'
+          onPress={toggleTheme}
+        >
+          Theme toggle
+        </CustomButton>
       </Box>
     </Layout>
   );
