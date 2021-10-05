@@ -37,8 +37,11 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 
-
 # Environment variables
 .env
 .env.local
 .env.development
+
+# Firebase
+functions/lib/
+ui-debug.txt

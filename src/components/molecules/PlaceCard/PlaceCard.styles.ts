@@ -26,7 +26,7 @@ export const CardHeaderAccentMark = styled.View`
   position: absolute;
   top: 0;
   right: 0;
-  width: 40%;
+  width: 50%;
   height: 100%;
   background-color: ${({ theme }) => theme.color.accent};
   border-top-right-radius: 10px;

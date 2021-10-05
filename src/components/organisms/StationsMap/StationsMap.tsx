@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Dimensions } from 'react-native';
 import { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
 import { truncate } from 'lodash';

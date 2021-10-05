@@ -8,7 +8,7 @@ export const SettingsTab: FC = () => {
   const { toggleTheme } = useAppActions();
   return (
     <Layout footer activeTab='Settings'>
-      <Title>SettingsTab</Title>
+      <Title>Settings</Title>
       <Box mt={20}>
         <CustomButton
           background='font'

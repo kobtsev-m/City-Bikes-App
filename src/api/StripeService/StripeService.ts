@@ -5,8 +5,10 @@ const paymentUrl = Constants?.manifest?.extra?.stripe?.paymentUrl;
 
 export class StripeService {
   static getClientSecret = async (amount: number, currency: string) => {
-    return axios
-      .post(paymentUrl, { amount, currency })
-      .then(({ data }) => data);
+    const paymentData = {
+      amount,
+      currency
+    };
+    return axios.post(paymentUrl, paymentData).then(({ data }) => data);
   };
 }
